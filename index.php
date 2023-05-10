@@ -8,7 +8,7 @@ spl_autoload_register(function($class){
     require __DIR__ . "/src/views/{$class}.php";
 });
 
-//init the controller
+//init controllers
 $dbLink = new Dbutitl;
 $user = new User($dbLink);
 $controller = new Controller($user);
