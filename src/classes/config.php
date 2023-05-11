@@ -1,5 +1,5 @@
 <?php
-
+//db config
 define("USER","root");
 define("PASS","root");
 define("DSN","mysql:host=localhost;dbname=pdophp");

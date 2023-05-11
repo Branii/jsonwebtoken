@@ -5,7 +5,7 @@ include "Config.php";
 /**
  * Summary of Dbutitl
  */
-class Dbutitl {
+class Dbutil extends Exception implements Throwable {
 
     /**
      * Summary of con
@@ -22,9 +22,9 @@ class Dbutitl {
         try {
             $this->con = new PDO(DSN,USER,PASS,OPT);
             return $this->con;
-        } catch (\Throwable $th) {
-            //throw $th;
-            return $th->getMessage();
+        } catch (Throwable $th) {
+            //handle errro
+            throw new Dbutil("PDO Error: " . $th->getMessage(), $th->getCode(), $th);
         }
 
     }

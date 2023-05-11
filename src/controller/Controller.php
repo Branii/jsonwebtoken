@@ -12,7 +12,7 @@ class Controller {
 
     public function processValidation(?string $email, ?string $password) {
 
-        $result = $this->user->validateUser($email, $password);
+        $result = $this -> user -> validateUser($email, $password);
         if (is_array($result)) {
             $payload = [
                 "id" => $result["uid"],

@@ -8,10 +8,10 @@ class User {
 
     /**
      * Summary of __construct
-     * @param Dbutitl $dbutitl
+     * @param Dbutil $dbutitl
      */
-    public function __construct(Dbutitl $dbutitl) {
-        $this->dblink = $dbutitl->dbLink();
+    public function __construct(Dbutil $dbutil) {
+        $this->dblink = $dbutil->dbLink();
     }
 
     /**
