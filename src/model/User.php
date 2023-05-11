@@ -4,14 +4,16 @@
  */
 class User {
 
-    private PDO $dblink;
+    private PDO $dbLink;
+    private PDO $killLink;
 
     /**
      * Summary of __construct
      * @param Dbutil $dbutitl
      */
     public function __construct(Dbutil $dbutil) {
-        $this->dblink = $dbutil->dbLink();
+        $this->dbLink = $dbutil->dbLink();
+        //$this->killLink = $dbutil->killLink();
     }
 
     /**
@@ -23,7 +25,7 @@ class User {
     public function validateUser(string $email, string $password) : array | string {
 
         $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
-        $command = $this->dblink->prepare($sql);
+        $command = $this->dbLink->prepare($sql);
         $command->bindParam(1,$email,PDO::PARAM_STR);//
         $command->bindParam(2,$password,PDO::PARAM_STR);//
         $command->execute();
