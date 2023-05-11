@@ -15,7 +15,7 @@ class Controller {
         $result = $this->user->validateUser($email, $password);
         if (is_array($result)) {
             $payload = [
-                "id" => $result["id"],
+                "id" => $result["uid"],
                 "email" => $result["email"],
                 "password" => $result["password"]
             ];

@@ -24,7 +24,8 @@ class User {
 
         $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
         $command = $this->dblink->prepare($sql);
-        $command->bindParam("ss",$emal,$password);//isd other data ntype
+        $command->bindParam(1,$email,PDO::PARAM_STR);//
+        $command->bindParam(2,$password,PDO::PARAM_STR);//
         $command->execute();
         $result = $command->fetch(PDO::FETCH_ASSOC);
         if ($result) {
@@ -37,4 +38,4 @@ class User {
 
 }
 
-//how to connect pdo php?
+//how to ...

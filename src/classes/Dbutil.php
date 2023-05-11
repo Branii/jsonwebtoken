@@ -1,6 +1,6 @@
 <?php
 
-include "config.php";
+include "Config.php";
 
 /**
  * Summary of Dbutitl
@@ -15,15 +15,16 @@ class Dbutitl {
 
     /**
      * Summary of dbLink
-     * @return PDO|false
+     * @return PDO
      */
-    public function dbLink () : PDO  {
+    public function dbLink() : PDO  {
         
         try {
             $this->con = new PDO(DSN,USER,PASS,OPT);
             return $this->con;
         } catch (\Throwable $th) {
             //throw $th;
+            return $th->getMessage();
         }
 
     }
