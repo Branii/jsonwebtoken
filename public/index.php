@@ -5,4 +5,7 @@ require "autoload.php";
 $dbLink = new Dbutil;
 $user = new User($dbLink);
 $controller = new Controller($user);
-$controller->processValidation("braniiblack@gmail.com","11234");
+print $controller->processValidation("braniiblack@gmail.com","1234");
+echo "<hr>";
+$token = $controller->processValidation("braniiblack@gmail.com","1234");
+print_r ($controller->decryptToken($token,(new TokenGenerator())->GetPrivateKey()));

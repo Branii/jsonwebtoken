@@ -26,7 +26,6 @@ class Dbutil extends Exception implements Throwable {
             //handle errro
             throw new Dbutil("PDO Error: " . $th->getMessage(), $th->getCode(), $th);
         }
-
     }
 
     /**
@@ -36,5 +35,4 @@ class Dbutil extends Exception implements Throwable {
     public function killLink() : void {
         $this->con = null;
     }
-
 }
